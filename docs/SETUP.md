@@ -43,6 +43,8 @@ codex exec "Run career-ops pdf mode for the latest evaluated role."
 codex exec "Run career-ops tracker mode and summarize the current statuses."
 ```
 
+For the full Codex guide, see [docs/CODEX.md](CODEX.md).
+
 ### Advanced — clone manually
 
 <details>

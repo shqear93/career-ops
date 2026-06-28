@@ -464,6 +464,7 @@ console.log('\n5. Data contract validation');
 // Check system files exist
 const systemFiles = [
   'CLAUDE.md', 'CODEX.md', 'OPENCODE.md', 'VERSION', 'DATA_CONTRACT.md',
+  'docs/CODEX.md',
   'modes/_shared.md', 'modes/_profile.template.md',
   'modes/oferta.md', 'modes/pdf.md', 'modes/scan.md',
   'modes/heuristics/recruiter-side.md',
@@ -1238,11 +1239,24 @@ if (
   fail('README is missing required Codex usage guidance');
 }
 
+const codexGuideDoc = readFile('docs/CODEX.md');
+if (
+  /AGENTS\.md/.test(codexGuideDoc) &&
+  /CODEX\.md/.test(codexGuideDoc) &&
+  /codex exec/.test(codexGuideDoc) &&
+  /Codex/i.test(codexGuideDoc)
+) {
+  pass('docs/CODEX.md documents the Codex guide and wrapper relationship');
+} else {
+  fail('docs/CODEX.md is missing required Codex guide content');
+}
+
 const setupDoc = readFile('docs/SETUP.md');
 if (
   /codex exec/.test(setupDoc) &&
   /Codex/i.test(setupDoc) &&
-  /(slash commands?.*not guaranteed|plain language|prompt)/i.test(setupDoc)
+  /(slash commands?.*not guaranteed|plain language|prompt)/i.test(setupDoc) &&
+  /\[docs\/CODEX\.md\]\(CODEX\.md\)/.test(setupDoc)
 ) {
   pass('docs/SETUP.md explains the Codex invocation model');
 } else {

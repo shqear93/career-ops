@@ -200,6 +200,8 @@ The skill is defined using the open standard in `.agents/skills/career-ops/SKILL
 
 Career-ops supports Codex through the same shared router, but the invocation model is different from CLIs that auto-register slash commands.
 
+For the Codex-specific guide, see [docs/CODEX.md](docs/CODEX.md).
+
 ### Interactive Codex
 
 ```bash
